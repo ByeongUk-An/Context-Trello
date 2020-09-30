@@ -15,10 +15,14 @@ function Title() {
     },
     title: {
       flexGrow: 1,
+      fontSize: "1.2rem",
+      fontWeight: "bold",
     },
     input: {
       boxSizing: "border-box",
       marginLeft: theme.spacing(1),
+      fontSize: "1.2rem",
+      fontWeight: "bold",
       padding: 0,
       "&:focus": {
         background: "#f4f4f4",
@@ -37,7 +41,7 @@ function Title() {
             }}
             fullWidth
             autoFocus
-            // onBlur={handleTitle}
+            onBlur={handleTitle}
           />
         </div>
       ) : (

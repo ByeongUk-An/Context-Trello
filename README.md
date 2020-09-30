@@ -1,8 +1,8 @@
 ## Task List
 
 1. ~~component~~
-2. card component
-3. input
+2. ~~card component~~
+3. ~~input~~
 4. initalize Data
 5. add card to list
 6. create list
