@@ -1,8 +1,6 @@
 ## Task List
 
-1. ```component~~~
-
-   ```
+1. ~~component~~
 2. card component
 3. input
 4. initalize Data
