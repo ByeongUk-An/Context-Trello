@@ -9,6 +9,8 @@ import { makeStyles } from "@material-ui/core";
 const useStyle = makeStyles((theme) => ({
   box: {
     display: "flex",
+    height: "100vh",
+    overflowX: "scroll",
   },
 }));
 
@@ -65,6 +67,16 @@ function App() {
 
     setData(newState);
   };
+  // const DeleteList = (id) => {
+  //   const list = data.lists[id];
+
+  //   const newState = {
+  //     ...data,
+  //     lists: {
+  //       ...data.lists,
+  //     },
+  //   };
+  // };
 
   return (
     <Context.Provider value={{ addingCard, addList, upDateTitle }}>
