@@ -18,7 +18,7 @@ function List({ list }) {
     <div>
       <Paper className={classes.root}>
         <CssBaseline />
-        <Title title={list.title} />
+        <Title title={list.title} id={list.id} />
         {list.cards.map((item) => {
           return <Card key={item.id} card={item} />;
         })}

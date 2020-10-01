@@ -75,7 +75,7 @@ function InputAdd({ setToggle, listId, type }) {
       </div>
       <div className={classes.btnCon}>
         <Button className={classes.button} onClick={onClick}>
-          Add Card
+          {type === "card" ? "Add Card" : "Add List"}
         </Button>
         <IconButton>
           <ClearIcon className={classes.clearIcon} />

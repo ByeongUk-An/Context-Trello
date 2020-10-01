@@ -51,9 +51,23 @@ function App() {
     };
     setData(newState);
   };
+  const upDateTitle = (titletext, id) => {
+    const list = data.lists[id];
+    list.title = titletext;
+
+    const newState = {
+      ...data,
+      lists: {
+        ...data.lists,
+        [id]: list,
+      },
+    };
+
+    setData(newState);
+  };
 
   return (
-    <Context.Provider value={{ addingCard, addList }}>
+    <Context.Provider value={{ addingCard, addList, upDateTitle }}>
       <div className={classes.box}>
         {data.listsIds.map((item) => {
           const list = data.lists[item];

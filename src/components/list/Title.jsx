@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { InputBase, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-function Title({ title }) {
+import Context from "../../context/context";
+
+function Title({ title, id }) {
+  const [newtitle, setNewTitle] = useState(title);
+  const { upDateTitle } = useContext(Context);
   const [edit, setEdit] = useState(false);
   const handleTitle = () => {
+    upDateTitle(newtitle, id);
     setEdit(!edit);
+  };
+  const onChange = (e) => {
+    setNewTitle(e.target.value);
   };
 
   const useStyle = makeStyles((theme) => ({
@@ -35,7 +43,8 @@ function Title({ title }) {
       {edit ? (
         <div className={classes.titleContainer}>
           <InputBase
-            value={title}
+            onChange={onChange}
+            value={newtitle}
             inputProps={{
               className: classes.input,
             }}
