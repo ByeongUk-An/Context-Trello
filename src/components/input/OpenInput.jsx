@@ -18,13 +18,13 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-function OpenInput() {
+function OpenInput({ listId }) {
   const classes = useStyle();
   const [toggle, setToggle] = useState(false);
   return (
     <div className={classes.box}>
       <Collapse in={toggle}>
-        <InputAdd setToggle={setToggle} />
+        <InputAdd setToggle={setToggle} listId={listId} />
       </Collapse>
 
       <Collapse in={!toggle}>
