@@ -22,7 +22,7 @@ function List({ list }) {
         {list.cards.map((item) => {
           return <Card key={item.id} card={item} />;
         })}
-        <OpenInput listId={list.id} />
+        <OpenInput listId={list.id} type="card" />
       </Paper>
     </div>
   );

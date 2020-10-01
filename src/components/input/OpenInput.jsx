@@ -18,13 +18,13 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-function OpenInput({ listId }) {
+function OpenInput({ listId, type }) {
   const classes = useStyle();
   const [toggle, setToggle] = useState(false);
   return (
     <div className={classes.box}>
       <Collapse in={toggle}>
-        <InputAdd setToggle={setToggle} listId={listId} />
+        <InputAdd setToggle={setToggle} listId={listId} type={type} />
       </Collapse>
 
       <Collapse in={!toggle}>
@@ -33,7 +33,9 @@ function OpenInput({ listId }) {
           elevation={0}
           onClick={() => setToggle(!toggle)}
         >
-          <Typography>+ Add another card</Typography>
+          <Typography>
+            {type === "card" ? "+ Add another card" : "+ Add another list"}
+          </Typography>
         </Paper>
       </Collapse>
     </div>

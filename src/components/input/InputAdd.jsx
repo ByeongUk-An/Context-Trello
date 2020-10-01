@@ -28,21 +28,25 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-function InputAdd({ setToggle, listId }) {
+function InputAdd({ setToggle, listId, type }) {
   const classes = useStyle();
-  const { addingCard } = useContext(Context);
-  const [cardText, setCardText] = useState("");
+  const { addingCard, addList } = useContext(Context);
+  const [title, setTitle] = useState("");
 
   const onChange = (e) => {
-    setCardText(e.target.value);
-    console.log(cardText);
+    setTitle(e.target.value);
   };
 
   const onClick = () => {
-    // console.log("Hello");
-    addingCard(cardText, listId);
-    setCardText("");
-    setToggle(false);
+    if (type === "card") {
+      addingCard(title, listId);
+      setTitle("");
+      setToggle(false);
+    } else {
+      addList(title);
+      setTitle("");
+      setToggle(false);
+    }
   };
 
   // const onBlurHandling = () => {
@@ -60,8 +64,12 @@ function InputAdd({ setToggle, listId }) {
             autoFocus
             // onBlur={onBlurHandling}
             className={classes.input}
-            value={cardText}
-            placeholder="Enter a title for this card..."
+            value={title}
+            placeholder={
+              type === "card"
+                ? "Enter a title of this card.."
+                : "Enter list title..."
+            }
           />
         </Paper>
       </div>
