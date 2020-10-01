@@ -1,10 +1,15 @@
-import List from "./List";
-import React from "react";
+import List from "./list/List";
+import React, { useState } from "react";
+import store from "../context/store";
 
 function App() {
+  const [data, setData] = useState(store);
   return (
     <>
-      <List />
+      {data.listsIds.map((item) => {
+        const list = data.lists[item];
+        return <List list={list} key={item} />;
+      })}
     </>
   );
 }

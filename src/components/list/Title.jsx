@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { InputBase, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-function Title() {
+function Title({ title }) {
   const [edit, setEdit] = useState(false);
   const handleTitle = () => {
     setEdit(!edit);
@@ -35,7 +35,7 @@ function Title() {
       {edit ? (
         <div className={classes.titleContainer}>
           <InputBase
-            value="Text"
+            value={title}
             inputProps={{
               className: classes.input,
             }}
@@ -47,7 +47,7 @@ function Title() {
       ) : (
         <div className={classes.titleContainer}>
           <Typography onClick={handleTitle} className={classes.title}>
-            Todo Text
+            {title}
           </Typography>
           <MoreHorizIcon />
         </div>
