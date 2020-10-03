@@ -48,6 +48,10 @@ function InputAdd({ setToggle, listId, type }) {
       setToggle(false);
     }
   };
+  const btnToggle = () => {
+    setToggle(false);
+    setTitle("");
+  };
 
   // const onBlurHandling = () => {
   //   setToggle(false);
@@ -78,7 +82,7 @@ function InputAdd({ setToggle, listId, type }) {
           {type === "card" ? "Add Card" : "Add List"}
         </Button>
         <IconButton>
-          <ClearIcon className={classes.clearIcon} />
+          <ClearIcon className={classes.clearIcon} onClick={btnToggle} />
         </IconButton>
       </div>
     </div>
