@@ -1,8 +1,9 @@
 import React from "react";
-import { Paper, CssBaseline } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { Draggable } from "react-beautiful-dnd";
 
-function Card({ card }) {
+function Card({ card, index }) {
   const useStyle = makeStyles((theme) => ({
     cardItem: {
       margin: theme.spacing(1),
@@ -11,9 +12,17 @@ function Card({ card }) {
   }));
   const classes = useStyle();
   return (
-    <div>
-      <Paper className={classes.cardItem}>{card.title}</Paper>
-    </div>
+    <Draggable draggableId={card.id} index={index}>
+      {(provided) => (
+        <div
+          ref={provided.innerRef}
+          {...provided.dragHandleProps}
+          {...provided.draggableProps}
+        >
+          <Paper className={classes.cardItem}>{card.title}</Paper>
+        </div>
+      )}
+    </Draggable>
   );
 }
 

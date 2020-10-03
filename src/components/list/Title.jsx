@@ -7,7 +7,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 
 function Title({ title, id }) {
   const [newtitle, setNewTitle] = useState(title);
-  const { upDateTitle } = useContext(Context);
+  const { upDateTitle, deleteList } = useContext(Context);
   const [edit, setEdit] = useState(false);
   const [toggle, setToggle] = useState(false);
   const handleTitle = () => {
@@ -20,6 +20,10 @@ function Title({ title, id }) {
   const dottoggle = (e) => {
     setToggle(!toggle);
     // console.log(toggle);
+  };
+
+  const onDelete = () => {
+    deleteList(id);
   };
 
   const useStyle = makeStyles((theme) => ({
@@ -112,7 +116,7 @@ function Title({ title, id }) {
               </IconButton>
             </div>
             <div className={classes.archive}>
-              <span>Archive This List</span>
+              <span onClick={onDelete}>Archive This List</span>
             </div>
           </div>
         </div>
